@@ -1,14 +1,21 @@
-# local-docker-efk
-Helps you debug your local docker container logs using EFK
+<<<<<<< HEAD
+docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down 
+# docker-compose-efbk
+---
 
-# Docker Compose Up
+## Overview
+Use elasticsearch, filebeat, and kibana to parse the log files collected using fluentd through patterns to enable log analysis.
+
+You can configure the above environment with docker-compose.
+
+## Usage
+
+Run
 docker-compose -f "docker-compose.yml" up -d --build
 
-# View Kibana
-http://localhost:5601/
+View Kibana
+localhost:5601
 
-# Set up your index
-filebeat*
-
-# Docker Compse Down
+Delete
 docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down 
+>>>>>>> 0cba9095e68e981f64257975e780596f9c628570
