@@ -1,20 +1,30 @@
 filebeat.inputs:
-- type: container
-  paths: 
-     - '/var/lib/docker/containers/*/*.log'
-  json.keys_under_root: true
+- type: log
+  paths:
+    - '/var/log/td-agent/sa/*.log'
+  multiline.pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}'
+  multiline.negate: true
+  multiline.match: after
 
 processors:
+  - dissect:
+      tokenizer: "%{timestamp}\t%{logsource}\t%{json_msg}"
+      field: "message"
+      target_prefix: ""
   - decode_json_fields:
-      fields: ["message"]
-
-  - add_docker_metadata:
-      host: "unix:///var/run/docker.sock"
-      
-  - drop_fields:
-      fields: ["container.labels"]
+      fields: ["jy_msg"]
+      target: ""
+      overwrite_keys: true
+      add_error_key: true
 
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]
   indices:
     - index: "filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+
+logging.level: debug
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeatJY.log
+
