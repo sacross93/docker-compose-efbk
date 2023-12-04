@@ -14,5 +14,8 @@ docker-compose -f "docker-compose.yml" up -d --build
 View Kibana
 localhost:5601
 
+Stop
+docker-compose down
+
 Delete
-docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down 
+docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down
