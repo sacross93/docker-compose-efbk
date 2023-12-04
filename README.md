@@ -18,4 +18,3 @@ localhost:5601
 
 Delete
 docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down 
->>>>>>> 0cba9095e68e981f64257975e780596f9c628570
