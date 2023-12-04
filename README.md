@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down 
 # docker-compose-efbk
 ---
 
