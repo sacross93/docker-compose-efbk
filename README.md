@@ -8,14 +8,14 @@ You can configure the above environment with docker-compose.
 
 ## Usage
 
-Run
-docker-compose -f "docker-compose.yml" up -d --build
+### Run <br/>
+docker-compose -f "docker-compose.yml" up -d --build <br/><br/>
 
-View Kibana
-localhost:5601
+### View Kibana <br/>
+localhost:5601 <br/><br/>
 
-Stop
-docker-compose down
+### Stop <br/>
+docker-compose down <br/><br/>
 
-Delete
+### Delete <br/>
 docker-compose -f 'docker-compose.yml' -p 'local-docker-efk' down
